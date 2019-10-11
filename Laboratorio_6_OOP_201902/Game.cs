@@ -213,5 +213,13 @@ namespace Laboratorio_6_OOP_201902
                 captains.Add(new SpecialCard(cardDetails[1], (EnumType)Enum.Parse(typeof(EnumType), cardDetails[2]), cardDetails[3]));
             }
         }
+        
+        
+        public string GetRoundWinner()
+        {
+            int[] p1 = players[0].GetAttackPoints(EnumType.None);
+            int
+
+        }
     }
 }
