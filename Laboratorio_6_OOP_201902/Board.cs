@@ -115,7 +115,7 @@ namespace Laboratorio_6_OOP_201902
             AddCard(captainCards[0][0], 0);
             AddCard(captainCards[1][0], 1);
         }
-        public int[] GetAttackPoints(EnumType line = EnumType.None)
+        public int[] GetMeleeAttackPoints()
         {
             //Debe sumar todos los puntos de ataque de las cartas melee y retornar los valores por jugador.
             int[] totalAttack = new int[] { 0, 0 };
@@ -128,27 +128,25 @@ namespace Laboratorio_6_OOP_201902
                         totalAttack[i] += card.AttackPoints;
                     }
                 }
-
-                else if (playerCards[i].ContainsKey(EnumType.range))
+            }
+            return totalAttack;
+            
+        }
+        int[] IAttackPoints.GetAttackPoints(EnumType line)
+        {
+            int[] totalAttack = new int[] { 0, 0 };
+            for (int i = 0; i < 2; i++)
+            {
+                if (playerCards[i].ContainsKey(EnumType.melee))
                 {
-                    foreach (CombatCard card in playerCards[i][EnumType.range])
-                    {
-                        totalAttack[i] += card.AttackPoints;
-                    }
-                }
-
-                else if (playerCards[i].ContainsKey(EnumType.longRange))
-                {
-                    foreach (CombatCard card in playerCards[i][EnumType.longRange])
+                    foreach (CombatCard card in playerCards[i][line])
                     {
                         totalAttack[i] += card.AttackPoints;
                     }
                 }
             }
             return totalAttack;
-            
         }
-        
 
     }
 }

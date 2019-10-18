@@ -112,7 +112,7 @@ namespace Laboratorio_6_OOP_201902
         }
         public void PlayCard(int cardId, EnumType buffRow = EnumType.None)
         {
-
+            
             Card tempCard = CreateTempCard(cardId, false);
 
             if (tempCard is CombatCard)
@@ -148,7 +148,7 @@ namespace Laboratorio_6_OOP_201902
         public void FirstHand()
         {
             Random random = new Random();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i<10; i++)
             {
                 DrawCard(random.Next(0, deck.Cards.Count));
             }
@@ -176,23 +176,36 @@ namespace Laboratorio_6_OOP_201902
                 return new SpecialCard(card.Name, card.Type, card.Effect);
             }
         }
-        public int[] GetAttackPoints (EnumType line = EnumType.None)
+
+        int[] IAttackPoints.GetAttackPoints(EnumType line)
         {
-            int[] totalAttack = new int[] { 0, 0 };
-            for (int i = 0; i < 2; i++)
+            int[] attackPoints = new int[1];
+
+            if (Board.PlayerCards[Id].ContainsKey(EnumType.melee))
             {
-                if (Board.PlayerCards[i].ContainsKey(EnumType.melee) || Board.PlayerCards[i].ContainsKey(EnumType.range) || Board.PlayerCards[i].ContainsKey(EnumType.longRange))
+                  foreach (CombatCard card in board.PlayerCards[Id][EnumType.melee])
+                  {
+                     attackPoints[0] += card.AttackPoints;
+                  }
+            }
+
+            if (Board.PlayerCards[Id].ContainsKey(EnumType.range))
+            {
+                foreach (CombatCard card in board.PlayerCards[Id][EnumType.range])
                 {
-                    foreach (CombatCard card in Board.PlayerCards[i][EnumType.melee])
-                    {
-                        totalAttack[i] += card.AttackPoints;
-                    }
-                }
-                else
-                {
+                    attackPoints[0] += card.AttackPoints;
                 }
             }
-            return totalAttack;
+
+            if (Board.PlayerCards[Id].ContainsKey(EnumType.longRange))
+            {
+                foreach (CombatCard card in board.PlayerCards[Id][EnumType.longRange])
+                {
+                    attackPoints[0] += card.AttackPoints;
+                }
+            }
+            return attackPoints;
+
         }
 
     }
