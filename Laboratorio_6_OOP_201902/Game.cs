@@ -110,6 +110,7 @@ namespace Laboratorio_6_OOP_201902
         
         public void Play()
         {
+            
             int userInput = 0;
             int firstOrSecondUser = ActivePlayer.Id == 0 ? 0 : 1;
             
@@ -158,6 +159,13 @@ namespace Laboratorio_6_OOP_201902
                 }
                 turn += 1;
             }
+            IAttackPoints player1 = players[0];
+            IAttackPoints player2 = players[1]; 
+
+            int[] playersLife = new int[2] { players[0].LifePoints, players[1].LifePoints };
+            int[] playersAttack= new int[2] { player1.GetAttackPoints()[0], player1.GetAttackPoints()[0] };
+
+           Visualization.ShowBoard(BoardGame, ActivePlayer.Id, playersLife, playersAttack);
 
 
         }
@@ -233,5 +241,6 @@ namespace Laboratorio_6_OOP_201902
                 return -1;
             }
         }
+
     }
 }

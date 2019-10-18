@@ -98,7 +98,141 @@ namespace Laboratorio_6_OOP_201902.Static
             Console.ResetColor();
             Console.Clear();
         }
+        public static void ShowBoard(Board board, int player, int[] lifePoints, int[] attackPoints)
+        {
+            IAttackPoints attackPointsType = board;
+            Console.WriteLine("Board");
+            if (player == 0)
+            {
+                Console.WriteLine("Opponent - LifePoints: {0} - AttackPoints: {1} :",lifePoints[1], attackPoints[1]);
 
+                //Informacion de cartas longRange de oponente
+                Console.WriteLine("(longRange) [{0}]:",attackPointsType.GetAttackPoints(EnumType.longRange)[1]);
+                if (board.PlayerCards[1].ContainsKey(EnumType.longRange))
+                {
+                    foreach (CombatCard card in board.PlayerCards[1][EnumType.longRange])
+                    {
+                        Console.WriteLine("|{0}|", card.AttackPoints);
+                    }
+                }
+                //Informacion de cartas range de oponente
+                Console.WriteLine("(range) [{0}]:", attackPointsType.GetAttackPoints(EnumType.range)[1]);
+                if (board.PlayerCards[1].ContainsKey(EnumType.range))
+                {
+                    foreach (CombatCard card in board.PlayerCards[1][EnumType.range])
+                    {
+                        Console.WriteLine("|{0}|", card.AttackPoints);
+                    }
+                }
+                //Informacion de cartas melee de oponente
+                Console.WriteLine("(melee) [{0}]:", attackPointsType.GetAttackPoints(EnumType.melee)[1]);
+                if (board.PlayerCards[1].ContainsKey(EnumType.melee))
+                {
+                    foreach (CombatCard card in board.PlayerCards[1][EnumType.melee])
+                    {
+                        Console.WriteLine("|{0}|", card.AttackPoints);
+                    }
+                }
+                Console.WriteLine("");
+                Console.WriteLine("Wheather Cards");
+                Console.WriteLine("");
+
+                Console.WriteLine("You - LifePoints: {0} - AttackPoints: {1} :", lifePoints[0], attackPoints[0]);
+
+                //Informacion de cartas longRange de jugador actual
+                Console.WriteLine("(longRange) [{0}]:", attackPointsType.GetAttackPoints(EnumType.longRange)[0]);
+                if (board.PlayerCards[player].ContainsKey(EnumType.longRange))
+                {
+                    foreach (CombatCard card in board.PlayerCards[player][EnumType.longRange])
+                    {
+                        Console.WriteLine("|{0}|", card.AttackPoints);
+                    }
+                }
+                //Informacion de cartas rage de jugador actual
+                Console.WriteLine("(range) [{0}]:", attackPointsType.GetAttackPoints(EnumType.range)[0]);
+                if (board.PlayerCards[player].ContainsKey(EnumType.range))
+                {
+                    foreach (CombatCard card in board.PlayerCards[player][EnumType.range])
+                    {
+                        Console.WriteLine("|{0}|", card.AttackPoints);
+                    }
+                }
+                //Informacion de cartas melee de jugador actual
+                Console.WriteLine("(melee) [{0}]:", attackPointsType.GetAttackPoints(EnumType.melee)[0]);
+                if (board.PlayerCards[player].ContainsKey(EnumType.melee))
+                {
+                    foreach (CombatCard card in board.PlayerCards[player][EnumType.melee])
+                    {
+                        Console.WriteLine("|{0}|", card.AttackPoints);
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Opponent - LifePoints: {0} - AttackPoints: {1} :", lifePoints[0], attackPoints[0]);
+
+                //Informacion de cartas longRange de oponente
+                Console.WriteLine("(longRange) [{0}]:", attackPointsType.GetAttackPoints(EnumType.longRange)[0]);
+                if (board.PlayerCards[0].ContainsKey(EnumType.longRange))
+                {
+                    foreach (CombatCard card in board.PlayerCards[0][EnumType.longRange])
+                    {
+                        Console.WriteLine("|{0}|", card.AttackPoints);
+                    }
+                }
+                //Informacion de cartas range de oponente
+                Console.WriteLine("(range) [{0}]:", attackPointsType.GetAttackPoints(EnumType.range)[0]);
+                if (board.PlayerCards[0].ContainsKey(EnumType.range))
+                {
+                    foreach (CombatCard card in board.PlayerCards[0][EnumType.range])
+                    {
+                        Console.WriteLine("|{0}|", card.AttackPoints);
+                    }
+                }
+                //Informacion de cartas melee de oponente
+                Console.WriteLine("(melee) [{0}]:", attackPointsType.GetAttackPoints(EnumType.melee)[0]);
+                if (board.PlayerCards[0].ContainsKey(EnumType.melee))
+                {
+                    foreach (CombatCard card in board.PlayerCards[0][EnumType.melee])
+                    {
+                        Console.WriteLine("|{0}|", card.AttackPoints);
+                    }
+                }
+                Console.WriteLine("");
+                Console.WriteLine("Wheather Cards");
+                Console.WriteLine("");
+
+                Console.WriteLine("You - LifePoints: {0} - AttackPoints: {1} :", lifePoints[1], attackPoints[1]);
+
+                //Informacion de cartas longRange de jugador actual
+                Console.WriteLine("(longRange) [{0}]:", attackPointsType.GetAttackPoints(EnumType.longRange)[1]);
+                if (board.PlayerCards[player].ContainsKey(EnumType.longRange))
+                {
+                    foreach (CombatCard card in board.PlayerCards[player][EnumType.longRange])
+                    {
+                        Console.WriteLine("|{0}|", card.AttackPoints);
+                    }
+                }
+                //Informacion de cartas rage de jugador actual
+                Console.WriteLine("(range) [{0}]:", attackPointsType.GetAttackPoints(EnumType.range)[1]);
+                if (board.PlayerCards[player].ContainsKey(EnumType.range))
+                {
+                    foreach (CombatCard card in board.PlayerCards[player][EnumType.range])
+                    {
+                        Console.WriteLine("|{0}|", card.AttackPoints);
+                    }
+                }
+                //Informacion de cartas melee de jugador actual
+                Console.WriteLine("(melee) [{0}]:", attackPointsType.GetAttackPoints(EnumType.melee)[1]);
+                if (board.PlayerCards[player].ContainsKey(EnumType.melee))
+                {
+                    foreach (CombatCard card in board.PlayerCards[player][EnumType.melee])
+                    {
+                        Console.WriteLine("|{0}|", card.AttackPoints);
+                    }
+                }
+            }
+        }
     }
     
 }
