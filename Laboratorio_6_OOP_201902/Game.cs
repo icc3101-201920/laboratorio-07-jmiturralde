@@ -159,7 +159,7 @@ namespace Laboratorio_6_OOP_201902
                 turn += 1;
             }
 
-            
+
         }
         public void AddDecks()
         {
@@ -211,6 +211,26 @@ namespace Laboratorio_6_OOP_201902
                 string line = reader.ReadLine();
                 string[] cardDetails = line.Split(",");
                 captains.Add(new SpecialCard(cardDetails[1], (EnumType)Enum.Parse(typeof(EnumType), cardDetails[2]), cardDetails[3]));
+            }
+        }
+
+       
+        public int GetRoundWinner()
+        {
+            IAttackPoints player1 = players[0];
+            IAttackPoints player2 = players[1];
+
+            if (player1.GetAttackPoints()[0] > player2.GetAttackPoints()[0])
+            {
+                return 0;
+            }
+            else if (player1.GetAttackPoints()[0] > player2.GetAttackPoints()[0])
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;
             }
         }
     }
