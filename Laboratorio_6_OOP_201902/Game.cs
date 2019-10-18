@@ -165,6 +165,7 @@ namespace Laboratorio_6_OOP_201902
             int[] playersLife = new int[2] { players[0].LifePoints, players[1].LifePoints };
             int[] playersAttack= new int[2] { player1.GetAttackPoints()[0], player1.GetAttackPoints()[0] };
 
+           //Se implemento ShowBoard, falto agregar metodolgia de turnos
            Visualization.ShowBoard(BoardGame, ActivePlayer.Id, playersLife, playersAttack);
 
 
